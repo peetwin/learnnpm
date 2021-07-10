@@ -1,0 +1,70 @@
+{
+  "name": "dumbsite",
+  "version": "2.1.1",
+  "description": "Some practice site",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test -u bdd -R spec",
+    "pretest": "npm run compile && npm run lint",
+    "posttest": " echo \"running posttest hook after test run...\"",
+    "start": "node index.js",
+    "start:dev": "node index.js 4001",
+    "restart": "echo \"Running restart script.\"",
+    "stop": "echo \"Running stop script.\"",
+    "greet": "echo \"Hello\"",
+    "pregreet": "echo \"Before greet\"",
+    "postgreet": "echo \"After greet\"",
+    "lint": "jshint ./ --exclude node_modules,public",
+    "compile:ts": "tsc --outDir ./lib --module commonjs ./src/typescripts/tsCode.ts --noImplicitUseStrict ",
+    "compile": "npm run compile:ts",
+    "precompile": "npm run clean",
+    "clean": "rimraf lib/*",
+    "build:clean": "rimraf public/css/* public/js/*",
+    "build:less": "lessc client/less/demo.less public/css/site.css",
+    "build:bundle": "browserify ./client/js/app.js | uglifyjs -mc > ./public/js/bundle.js",
+    "prebuild": "npm run build:clean",
+    "build": "npm run build:less && npm run build:bundle",
+    "watch:test": "npm run test -- -w -R min",
+    "watch:lint": "watch \"npm run lint\" .",
+    "watch:server": "nodemon --ignore client --ignore public index.js",
+    "watch:ts": "tsc -w --outDir ./lib --module commonjs ./src/typescripts/tsCode.ts",
+    "watch:bundle": "watchify ./client/js/app.js -o ./public/js/bundle.js -dv",
+    "watch:bundleWatcher": "watch \"npm run build:bundle\" client",
+    "watch:browser": "live-reload --port 9091 public/",
+    "watch": "concurrently \"npm run watch:test\" \"npm run watch:bundle\" \"npm run watch:server\" \"npm run watch:browser\""
+	"version:major": "npm version major",
+	"version:minor": "npm version minor",
+	"version:patch": "npm version patch"
+  },
+  "jshintConfig": {
+    "esnext": "true",
+    "noyield": "true"
+  },
+  "keywords": [
+    "npm",
+    "scripting",
+    "practice"
+  ],
+  "author": "Pete Huynh @vectorsolutions",
+  "license": " MIT",
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "concurrently": "^6.2.0",
+    "jshint": "^2.13.0",
+    "less": "^4.1.1",
+    "live-reload": "^0.1.1",
+    "mocha": "^9.0.1",
+    "nodemon": "^2.0.10",
+    "rimraf": "^3.0.2",
+    "should": "^13.2.3",
+    "supertest": "^6.1.3",
+    "typescript": "^4.3.5",
+    "uglify-js": "^3.13.10",
+    "uglifyjs": "^2.4.11",
+    "watch": "^0.13.0",
+    "watchify": "^4.0.0"
+  },
+  "dependencies": {
+    "koa": "^2.13.1"
+  }
+}

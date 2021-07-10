@@ -1,0 +1,8 @@
+.box {
+  color: #fe33ac;
+  border-color: #fdcdea;
+}
+.box div {
+  -webkit-box-shadow: 0 0 5px 30% rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 5px 30% rgba(0, 0, 0, 0.5);
+}
