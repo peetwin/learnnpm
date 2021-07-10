@@ -22,7 +22,7 @@
     "build:clean": "rimraf public/css/* public/js/*",
     "build:less": "lessc client/less/demo.less public/css/site.css",
     "build:bundle": "browserify ./client/js/app.js | uglifyjs -mc > ./public/js/bundle.js",
-    "prebuild": "npm run build:clean",
+     "prebuild": "npm run build:clean",
     "build": "npm run build:less && npm run build:bundle",
     "watch:test": "npm run test -- -w -R min",
     "watch:lint": "watch \"npm run lint\" .",
@@ -64,6 +64,10 @@
     "watch": "^0.13.0",
     "watchify": "^4.0.0"
   },
+  "repository":{
+	  "type": "git"
+	  "url": "https://github.com/peetwin/learnnpm"
+  }
   "dependencies": {
     "koa": "^2.13.1"
   }
