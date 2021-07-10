@@ -1,6 +1,6 @@
 {
   "name": "dumbsite",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Some practice site",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "build:clean": "rimraf public/css/* public/js/*",
     "build:less": "lessc client/less/demo.less public/css/site.css",
     "build:bundle": "browserify ./client/js/app.js | uglifyjs -mc > ./public/js/bundle.js",
-     "prebuild": "npm run build:clean",
+    "prebuild": "npm run build:clean",
     "build": "npm run build:less && npm run build:bundle",
     "watch:test": "npm run test -- -w -R min",
     "watch:lint": "watch \"npm run lint\" .",
@@ -31,10 +31,10 @@
     "watch:bundle": "watchify ./client/js/app.js -o ./public/js/bundle.js -dv",
     "watch:bundleWatcher": "watch \"npm run build:bundle\" client",
     "watch:browser": "live-reload --port 9091 public/",
-    "watch": "concurrently \"npm run watch:test\" \"npm run watch:bundle\" \"npm run watch:server\" \"npm run watch:browser\""
-	"version:major": "npm version major",
-	"version:minor": "npm version minor",
-	"version:patch": "npm version patch"
+    "watch": "concurrently \"npm run watch:test\" \"npm run watch:bundle\" \"npm run watch:server\" \"npm run watch:browser\"",
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch"
   },
   "jshintConfig": {
     "esnext": "true",
@@ -64,10 +64,10 @@
     "watch": "^0.13.0",
     "watchify": "^4.0.0"
   },
-  "repository":{
-	  "type": "git"
-	  "url": "https://github.com/peetwin/learnnpm"
-  }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/peetwin/learnnpm"
+  },
   "dependencies": {
     "koa": "^2.13.1"
   }
