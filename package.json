@@ -1,6 +1,6 @@
 {
   "name": "dumbsite",
-  "version": "2.1.2",
+  "version": "2.2.0",
   "description": "Some practice site",
   "main": "index.js",
   "scripts": {
@@ -35,7 +35,7 @@
     "version:major": "npm version major",
     "version:minor": "npm version minor",
     "version:patch": "npm version patch",
-	"push:origin" : "git push --tags origin HEAD:master"
+    "push:origin": "git push --tags origin HEAD:master"
   },
   "jshintConfig": {
     "esnext": "true",
